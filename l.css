@@ -13,6 +13,9 @@ body {
 .container {
   width: 100%;
   height: 100%;
+  overflow-y: auto;
+  filter: blur(5px);
+  position: relative;
 }
 .small {
   position: absolute;
@@ -37,7 +40,7 @@ body {
   margin: 50px auto;
   background-image: linear-gradient(#fef3c5, #f9de84);
   border: 5px solid #a85210;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,8 +53,111 @@ body {
 .second {
   background-image: linear-gradient(#fef3c5, #f9de84);
   border: 5px solid #a85210;
-  border-radius: 5px;
+  border-radius: 10px;
   width: 90%;
   height: 400px;
   margin: 50px auto;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 50px;
+}
+.flexd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.flexd p,
+.flexd svg {
+  margin: 10px;
+}
+#volumenumber {
+  font-size: 40px;
+  color: #7f3f18;
+}
+#didread {
+  font-size: 40px;
+  color: #7f3f18;
+}
+#didntread {
+  font-size: 40px;
+  color: #7f3f18;
+}
+#totalpages {
+  font-size: 40px;
+  color: #7f3f18;
+}
+.third {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+#search {
+  width: 90%;
+  height: 50px;
+  background-color: #f1e9d9;
+  border: 3px solid #a85210;
+  margin: 20px auto;
+  font-size: 23px;
+
+  padding-left: 20px;
+  border-radius: 10px;
+}
+input::placeholder {
+  color: #e19d4c;
+  font-size: 23px;
+}
+#search:focus {
+  outline: none;
+}
+#create {
+  background-image: linear-gradient(to right, #d97706, #b45309);
+  border: 3px solid #b35a0a;
+  border-radius: 15px;
+  color: white;
+  height: 50px;
+  width: 91%;
+  cursor: pointer;
+  margin: auto;
+  padding-left: 20px;
+  box-shadow: 2px 0 5px black;
+  font-size: 20px;
+}
+.forth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  background-color: #b29c749d;
+  gap: 10px;
+  margin: 40px auto;
+  border: 3px solid #a85210;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+/* form */
+.form {
+  display: flex;
+  width: 100vh;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #fef1bd;
+  border: 3px solid #a85210;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+.gridf {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 100px;
+  width: 30%;
 }
