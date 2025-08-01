@@ -214,7 +214,7 @@
       </div>
       <div class="third">
         <input type="text" id="search" placeholder="Search The Archives..." />
-        <button type="button" id="create" style="text-align: left">
+        <button type="button" class="create" style="text-align: left">
           + Acquire New Volume
         </button>
       </div>
@@ -246,20 +246,97 @@
         <p style="color: #844c26; font-size: 25px">
           Begin building your literary empire
         </p>
-        <button type="button" id="create" style="height: 50px; width: auto">
+        <button type="button" class="create" style="height: 50px; width: auto">
           + Acquire Your FirstVolume
         </button>
       </div>
     </div>
     <div class="form">
       <form class="gridf">
-        <input type="text" required placeholder="" />
-        <input type="text" required placeholder="" />
-        <input type="text" required placeholder="" />
-        <input type="text" required placeholder="" />
-        <input type="text" required placeholder="" />
-        <button type="submit"></button>
-        <button type="submit"></button>
+        <div
+          style="
+            grid-column: 1/3;
+            font-size: 40px;
+            color: #78350f;
+            justify-self: center;
+            align-self: center;
+          "
+        >
+          Catalog New Volume
+        </div>
+        <div
+          style="
+            grid-column: 1/3;
+            justify-self: center;
+            align-self: center;
+            width: 90%;
+            height: 70%;
+          "
+        >
+          <input
+            type="text"
+            id="title"
+            required
+            placeholder="Title of the work"
+          />
+        </div>
+        <div
+          style="
+            grid-column: 1/3;
+            justify-self: center;
+            align-self: center;
+            width: 90%;
+            height: 70%;
+          "
+        >
+          <input type="text" id="author" required placeholder="Author " />
+        </div>
+        <div
+          style="
+            justify-self: center;
+            align-self: center;
+            width: 100%;
+            height: 70%;
+          "
+        >
+          <input type="number" id="pages" required placeholder="Pages" />
+        </div>
+        <div
+          style="
+            justify-self: center;
+            align-self: center;
+            width: 100%;
+            height: 70%;
+          "
+        >
+          <input type="number" id="year" required placeholder="Year" />
+        </div>
+        <div
+          style="
+            grid-column: 1/3;
+            justify-self: center;
+            align-self: center;
+            width: 90%;
+            height: 70%;
+          "
+        >
+          <input type="text" id="type" required placeholder="Genre" />
+        </div>
+        <div style="width: 90%; height: 70%">
+          <button type="button" id="Cancel" style="background-color: #4b5563">
+            Cancel
+          </button>
+        </div>
+        <div style="width: 90%; height: 70%">
+          <button
+            type="submit"
+            style="
+              background-image: linear-gradient(to right, #d87606, #b45309);
+            "
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
 
