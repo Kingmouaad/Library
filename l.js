@@ -30,11 +30,13 @@ function Book(title, author, pages, year, type) {
     return `${this.type} - ${this.year} - ${this.pages}pages`;
   };
 }
-const createbutton = document.querySelector(".create");
-createbutton.addEventListener("click", () => {
-  mainform.setAttribute("style", "display:flex;");
-  container.style.filter = "blur(5px)";
-});
+const createbutton = document.querySelectorAll(".create");
+createbutton.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    mainform.setAttribute("style", "display:flex;");
+    container.style.filter = "blur(5px)";
+  })
+);
 const cancel = document.querySelector("#Cancel");
 cancel.addEventListener("click", () => {
   mainform.setAttribute("style", "display:none;");
@@ -43,6 +45,8 @@ cancel.addEventListener("click", () => {
 const form = document.querySelector("form");
 const mainform = document.querySelector(".form");
 const forthdiv = document.querySelector(".forth");
+let books = [];
+let forthdivarray = [];
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const newbook = new Book(
@@ -54,10 +58,69 @@ form.addEventListener("submit", (e) => {
   );
   mainform.style.display = "none";
   container.style.filter = "none";
-  if (forthdiv.firstElementChild === "svg") {
-    for (let i = 0; i < 3; i++) {
-      forthdiv.removeChild(forthdiv.firstChild);
+
+  // forthdiv.firstElementChild === "svg"
+  if (books.length === 0 && forthdiv.children.length > 0) {
+    for (let i = 0; i < 4; i++) {
+      forthdivarray.push(forthdiv.removeChild(forthdiv.firstElementChild));
     }
   }
-  const cover = document.createElement(div);
+  // if (forthdiv.firstElementChild === null){
+  //   forthdiv.appendChild(forthdivarray.shift())
+  // forthdiv.setAttribute("style","justify-content: center;align-items: center;flex-direction: column;")
+  // }
+  forthdiv.style.display = "grid";
+  forthdiv.style.backgroundColor = "#8c3e0d";
+  forthdiv.style.boxShadow = "inset 0 0 10px rgba(0,0,0,0.5)";
+  forthdiv.style.justifyContent = "start";
+  forthdiv.style.alignItems = "end";
+  forthdiv.style.gridTemplateColumns = "repeat(11,100px)";
+  forthdiv.style.gridAutoRows = "200px";
+  forthdiv.style.gap = "1px";
+  const cover = document.createElement("div");
+  cover.style.backgroundColor = `rgb(${Math.random() * 255},${
+    Math.random() * 255
+  },${Math.random() * 255})`;
+  cover.classList.add("cover");
+  cover.style.width = `${Math.random() * 200}px`;
+  cover.style.height = `${Math.random() * 55}px`;
+  const cont = document.createElement("div");
+  cont.classList.add("cont");
+  cont.textContent = newbook.title;
+
+  const popup = document.createElement("div");
+  popup.classList.add("hover");
+  popup.innerHTML = `
+    <h3>${newbook.title}</h3>
+    <p>by ${newbook.author}</p>
+    <p>${newbook.type} • ${newbook.pages} pages</p>
+    <p>Year: ${newbook.year}</p>
+    <button class="delete-btn">🗑</button>
+  `;
+
+  // Add event listeners
+  cover.addEventListener("mouseenter", () => {
+    popup.style.display = "block";
+  });
+
+  cover.addEventListener("mouseleave", () => {
+    popup.style.display = "none";
+  });
+
+  // Delete functionality
+  popup.querySelector(".delete-btn").addEventListener("click", () => {
+    cover.remove();
+    books = books.filter((book) => book !== cover);
+  });
+  popup.classList.add("hover");
+
+  cover.appendChild(cont);
+  cover.appendChild(popup);
+  forthdiv.appendChild(cover);
+  books.push(cover);
+  form.reset();
+});
+const cover = document.querySelector(".cover");
+cover.addEventListener("mouseover", () => {
+  cover.style.display = "grid";
 });
