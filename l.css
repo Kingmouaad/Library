@@ -199,6 +199,9 @@ div button {
 .cont {
   color: #bb752b;
   position: relative;
+  text-align: center;
+  width: 150px;
+  height: 30px;
 }
 .cont::before {
   position: absolute;
@@ -206,7 +209,7 @@ div button {
   width: 20px;
   border-bottom: 3px solid #bb752b;
   top: 12px;
-  left: -30px;
+  left: 5px;
 }
 .cont::after {
   position: absolute;
@@ -214,7 +217,7 @@ div button {
   width: 20px;
   border-bottom: 3px solid #bb752b;
   top: 12px;
-  right: -30px;
+  right: 5px;
 }
 
 .cover {
@@ -222,7 +225,7 @@ div button {
   display: flex;
   align-items: center;
   min-height: 30px;
-  min-width: 100px;
+  min-width: 150px;
   justify-content: center;
   gap: 40px;
   position: relative;
@@ -240,6 +243,32 @@ div button {
   top: 50px;
   transform: rotate(90deg);
   z-index: 10;
+  padding: 20px;
+  animation: light 0.3s ease 1 both alternate;
 }
-.hover div {
+.hover * {
+  font-size: 16px;
+}
+.delete {
+  width: 30%;
+  height: auto;
+  background-color: red;
+}
+.unread {
+  width: 70%;
+  background-color: #d97706;
+  height: auto;
+}
+.flex4 {
+  display: flex;
+  gap: auto;
+}
+.small1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
